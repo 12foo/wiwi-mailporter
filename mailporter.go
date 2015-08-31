@@ -92,8 +92,8 @@ func transferMbox(c *cli.Context) {
 	}
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Printf("%d Mails sind zu übertragen. Fortfahren (j oder n)? ", len(mails))
-	user, _ := reader.ReadString('\n')
-	if user != "j\n" {
+	cont, _ := reader.ReadString('\n')
+	if strings.TrimSpace(cont) != "j" {
 		return
 	}
 	fmt.Printf("Übertrage Mails.\n")
